@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: #121212;
+      color: #f1f1f1;
+    }
+    header, section {
+      padding: 20px;
+    }
+    .gallery img {
+      width: 100px; margin: 10px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.2);
+    }
+    .quote-box {
+      font-style: italic; margin: 20px 0;
+    }
+    form input, form textarea {
+      display: block; width: 100%; margin: 10px 0; padding: 8px;
+    }
+    button {
+      padding: 8px 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to My Profile!</h1>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>Hi! I'm a passionate web developer who loves learning and building new things.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>React Basics</li>
+      <li>Problem Solving</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hobbies</h2>
+    <p>I enjoy photography, hiking, and creating small web projects.</p>
+  </section>
+
+  <section class="gallery">
+    <h2>Image Gallery</h2>
+    <img src="https://via.placeholder.com/100" alt="Gallery 1">
+    <img src="https://via.placeholder.com/100" alt="Gallery 2">
+    <img src="https://via.placeholder.com/100" alt="Gallery 3">
+  </section>
+
+  <section class="quote-box">
+    <h2>Motivational Quote</h2>
+    <p id="quote">"The best way to predict the future is to invent it."</p>
+  </section>
+
+  <section>
+    <h2>Contact Me</h2>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script>
+    const quotes = [
+      "Believe in yourself!",
+      "Every day is a second chance.",
+      "Code is like humor. When you have to explain it, it’s bad.",
+      "Stay positive, work hard, make it happen."
+    ];
+    let quoteIndex = 0;
+
+    setInterval(() => {
+      quoteIndex = (quoteIndex + 1) % quotes.length;
+      document.getElementById("quote").textContent = quotes[quoteIndex];
+    }, 4000);
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("Message sent successfully!");
+    }
+  </script>
+
+</body>
+</html>
